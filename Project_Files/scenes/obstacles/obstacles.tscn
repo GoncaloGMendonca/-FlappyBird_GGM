@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cptpyim8agqii"]
+
+[ext_resource type="Script" path="res://scenes/obstacles/obstacles.gd" id="1_t6ovv"]
+[ext_resource type="Texture2D" uid="uid://dqc3csqda2moo" path="res://assets/sprites/pipe.png" id="1_vjnx3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbn5u"]
+size = Vector2(78, 560)
+
+[node name="Obstacles" type="Area2D"]
+script = ExtResource("1_t6ovv")
+
+[node name="LowerPart" type="Sprite2D" parent="."]
+texture = ExtResource("1_vjnx3")
+offset = Vector2(0, 380)
+
+[node name="UpperPart" type="Sprite2D" parent="."]
+texture = ExtResource("1_vjnx3")
+offset = Vector2(0, -380)
+flip_v = true
+
+[node name="LowerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 384)
+shape = SubResource("RectangleShape2D_gbn5u")
+
+[node name="UpperCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -380)
+shape = SubResource("RectangleShape2D_gbn5u")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

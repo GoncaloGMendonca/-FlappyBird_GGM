@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://blhwmws4frekg"]
 
-[ext_resource type="PackedScene" uid="uid://cwbwk6bc3uy64" path="res://scenes/chicken.tscn" id="1_j81mf"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_xoif1"]
 [ext_resource type="Texture2D" uid="uid://cl7vvqwyuwfyx" path="res://assets/sprites/bg.png" id="2_a8n7g"]
-[ext_resource type="PackedScene" uid="uid://bstmfa0a8dw3c" path="res://pipe.tscn" id="2_rwffl"]
+[ext_resource type="PackedScene" uid="uid://cptpyim8agqii" path="res://scenes/obstacles/obstacles.tscn" id="2_euqju"]
 [ext_resource type="PackedScene" uid="uid://bc2wwjn8ua1ms" path="res://scenes/ground.tscn" id="4_hx2ua"]
+[ext_resource type="PackedScene" uid="uid://bn74pdlugarw1" path="res://scenes/player/player.tscn" id="5_kpata"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_xoif1")
-obstacle_scene = Array[PackedScene]([ExtResource("2_rwffl")])
+obstacle_scene = Array[PackedScene]([ExtResource("2_euqju")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 661.0
@@ -17,15 +17,18 @@ texture = ExtResource("2_a8n7g")
 
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="."]
 
-[node name="Chicken" parent="." instance=ExtResource("1_j81mf")]
-unique_name_in_owner = true
-position = Vector2(133, 252)
-
 [node name="Ground" parent="." instance=ExtResource("4_hx2ua")]
+unique_name_in_owner = true
 z_index = 1
-position = Vector2(0, 186)
+position = Vector2(0, 189)
 
 [node name="ObstaclesTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Obstacles" parent="." instance=ExtResource("2_euqju")]
+position = Vector2(636, 410)
+
+[node name="Player" parent="." instance=ExtResource("5_kpata")]
+position = Vector2(180, 358)
 
 [connection signal="timeout" from="ObstaclesTimer" to="." method="_on_obstacles_timer_timeout"]
