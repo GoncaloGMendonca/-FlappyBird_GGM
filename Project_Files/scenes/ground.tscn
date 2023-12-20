@@ -1,20 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc2wwjn8ua1ms"]
+[gd_scene load_steps=5 format=3 uid="uid://bc2wwjn8ua1ms"]
 
+[ext_resource type="Script" path="res://scenes/ground.gd" id="1_oapl2"]
 [ext_resource type="Texture2D" uid="uid://dindbwqqeqhtu" path="res://assets/sprites/ground.png" id="1_vqyxu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nokay"]
 size = Vector2(1729, 171)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tv3kv"]
+size = Vector2(868, 88)
+
 [node name="Ground" type="Area2D"]
 position = Vector2(0, 187)
+script = ExtResource("1_oapl2")
 
-[node name="ColorRect" type="TextureRect" parent="."]
+[node name="GroundTexture" type="TextureRect" parent="."]
 offset_left = -1.0
 offset_top = 577.0
 offset_right = 1231.0
 offset_bottom = 742.0
 texture = ExtResource("1_vqyxu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="GroundCollision" type="CollisionShape2D" parent="."]
 position = Vector2(864.5, 662.5)
 shape = SubResource("RectangleShape2D_nokay")
+
+[node name="SkyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(424, -232)
+shape = SubResource("RectangleShape2D_tv3kv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
