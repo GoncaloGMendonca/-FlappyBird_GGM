@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8yn5mhhnkwpd"]
+[gd_scene load_steps=10 format=3 uid="uid://d018dtcfpd536"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_xoif1"]
 [ext_resource type="PackedScene" uid="uid://cptpyim8agqii" path="res://scenes/obstacles/obstacles.tscn" id="2_euqju"]
@@ -47,6 +47,7 @@ motion_scale = Vector2(5, 5)
 motion_mirroring = Vector2(864, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+modulate = Color(0.74902, 0.74902, 0.74902, 1)
 texture = ExtResource("6_b66rf")
 centered = false
 
