@@ -6,7 +6,7 @@ signal scored
 var scroll_speed = 500 
 var scroll_direction = Vector2.LEFT
 
-const SPRITES := ["apple","pineapple","bananas","cherry"]
+const SPRITES := ["obstacule_1","obstacule_2","obstacule_3","obstacule_4"]
 
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 
@@ -26,4 +26,5 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
 
 func _on_timer_timeout() -> void:
+	print("MUDARA")
 	animated_sprite_2d.play(SPRITES.pick_random())

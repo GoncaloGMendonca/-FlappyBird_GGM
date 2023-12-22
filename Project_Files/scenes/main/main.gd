@@ -47,6 +47,7 @@ func generate_obstacles():
 	obstacle.position.x = screen_size.x + obstacle_delay
 	obstacle.position.y = (screen_size.y) / 2  + randi_range(-obstacle_range, obstacle_range)
 	add_child(obstacle)
+	obstacle.animated_sprite_2d.play(obstacle.SPRITES.pick_random())
 
 
 func new_game() -> void:
