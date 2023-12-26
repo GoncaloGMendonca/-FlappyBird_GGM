@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbn3gyuudp2qf"]
+[gd_scene load_steps=4 format=3 uid="uid://bbn3gyuudp2qf"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_n2tq6"]
+[ext_resource type="FontFile" uid="uid://cmgl6d0lr2t2q" path="res://assets/font/Alkhemikal.ttf" id="2_fpfce"]
+[ext_resource type="PackedScene" uid="uid://b2mu6sct6ksdi" path="res://scenes/leaderboard.tscn" id="2_okqlo"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_n2tq6")
@@ -17,7 +19,9 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "CHICKEN RUN"
+theme_override_fonts/font = ExtResource("2_fpfce")
+theme_override_font_sizes/font_size = 125
+text = "Bat Escape"
 
 [node name="PlayGame_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -30,6 +34,8 @@ text = "Quit Game"
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="."]
 
 [node name="ButtonClick_SFX" type="AudioStreamPlayer" parent="."]
+
+[node name="Leaderboard" parent="." instance=ExtResource("2_okqlo")]
 
 [connection signal="pressed" from="VBoxContainer/PlayGame_Button" to="." method="_on_play_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]

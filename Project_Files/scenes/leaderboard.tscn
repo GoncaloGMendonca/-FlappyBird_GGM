@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2mu6sct6ksdi"]
+
+[ext_resource type="Script" path="res://scenes/leaderboard.gd" id="1_8iojf"]
+
+[node name="Leaderboard" type="CanvasLayer"]
+script = ExtResource("1_8iojf")
+
+[node name="HighscoreLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 35.0
+offset_top = 34.0
+offset_right = 167.0
+offset_bottom = 124.0
+text = "000000"

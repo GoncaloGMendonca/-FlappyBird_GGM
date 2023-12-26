@@ -26,6 +26,7 @@ func _ready():
 	screen_size = get_window().size
 	player.freeze = true
 	start_game()
+	new_game()
 
 func _process(delta):
 	parallax_background.scroll_offset.x -= scrolling_speed * delta
@@ -52,6 +53,7 @@ func generate_obstacles():
 
 func new_game() -> void:
 	print("NEW GAMEE")
+	GameManager.score = 0 
 #	player.freeze = false
 
 func start_game():
@@ -66,6 +68,8 @@ func game_over():
 	print("FINALLLLLl")
 #	get_tree().paused = true
 	game_over_menu.show()
+	SaveSystem.data.highscore = GameManager.score
+	SaveSystem.save_data()
 	
 
 
