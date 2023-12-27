@@ -19,25 +19,31 @@ var scroll = 0
 @onready var player: RigidBody2D = %Player
 @onready var parallax_background: ParallaxBackground = %ParallaxBackground
 @onready var obstacles: Area2D = %Obstacles
+@onready var start_game_shortcut_button: Button = %Start_Game_Shortcut_Button
+@onready var game_over_sfx: AudioStreamPlayer = %GameOver_SFX
 
 
 func _ready():
-#		get_tree().paused = true
+#	get_tree().paused = true
 	screen_size = get_window().size
 	player.freeze = true
-	start_game()
+#	start_game()
 	new_game()
 
 func _process(delta):
-	parallax_background.scroll_offset.x -= scrolling_speed * delta
 	score_label.text = str(GameManager.score)
+	
+	if GameManager.game_running:
+		parallax_background.scroll_offset.x -= scrolling_speed * delta
+#	if player.freeze != true:
+#		parallax_background.scroll_offset.x -= scrolling_speed * delta
+		
 #	if game_running:
 #		scroll += scroll_speed
 #		#loop do ground
 #		if scroll >= screen_size.x:
 #			scroll = 0
 #		ground.position.x = -scroll
-
 
 func _on_obstacles_timer_timeout() -> void:
 	generate_obstacles()
@@ -50,15 +56,19 @@ func generate_obstacles():
 	add_child(obstacle)
 	obstacle.animated_sprite_2d.play(obstacle.SPRITES.pick_random())
 
-
 func new_game() -> void:
 	print("NEW GAMEE")
 	GameManager.score = 0 
+	player.freeze = true
+	GameManager.game_running = false
 #	player.freeze = false
 
 func start_game():
+	GameManager.game_running = true
 	obstacles_timer.start()
-	player.freeze = false
+	if GameManager.game_running:
+		player.freeze = false
+	print("GERA")
 
 func game_over():
 	obstacles_timer.stop()
@@ -71,7 +81,9 @@ func game_over():
 	SaveSystem.data.highscore = GameManager.score
 	SaveSystem.save_data()
 	score_label.hide()
+
+func _on_button_pressed() -> void:
+	print("BUTTTONNN")
+	if GameManager.game_running != true:
+		start_game()
 	
-
-
-

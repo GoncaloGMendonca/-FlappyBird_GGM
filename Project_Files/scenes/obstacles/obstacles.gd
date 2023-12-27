@@ -11,7 +11,8 @@ const SPRITES := ["obstacule_1","obstacule_2","obstacule_3","obstacule_4"]
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 
 func _process(delta):
-	position += scroll_direction * scroll_speed * delta
+	if GameManager.game_running:
+		position += scroll_direction * scroll_speed * delta
 
 func _on_body_entered(_body: RigidBody2D) -> void:
 	hit.emit()

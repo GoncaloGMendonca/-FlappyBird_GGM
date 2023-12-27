@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d018dtcfpd536"]
+[gd_scene load_steps=15 format=3 uid="uid://d018dtcfpd536"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_xoif1"]
 [ext_resource type="PackedScene" uid="uid://cptpyim8agqii" path="res://scenes/obstacles/obstacles.tscn" id="2_euqju"]
@@ -11,6 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://b031544o71ygh" path="res://gameover_menu.tscn" id="6_xx4in"]
 [ext_resource type="AudioStream" uid="uid://idab2xt1ls8l" path="res://assets/SFX_Music/Goblins_Den_(Regular).wav" id="7_gle1m"]
 [ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/Game_Theme.tres" id="9_p4fkb"]
+[ext_resource type="AudioStream" uid="uid://du8uk6tccx5hw" path="res://assets/SFX_Music/game_over_SFX.mp3" id="12_fvgd5"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_gxrdm"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_o7ecd"]
+events = [SubResource("InputEventAction_gxrdm")]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_xoif1")
@@ -55,7 +62,7 @@ centered = false
 
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_gle1m")
-volume_db = 1.049
+volume_db = 3.099
 autoplay = true
 
 [node name="Ground" parent="." instance=ExtResource("4_hx2ua")]
@@ -92,6 +99,17 @@ text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Start_Game_Shortcut_Button" type="Button" parent="."]
+unique_name_in_owner = true
+offset_right = 8.0
+offset_bottom = 8.0
+shortcut = SubResource("Shortcut_o7ecd")
+
+[node name="GameOver_SFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_fvgd5")
+
 [connection signal="hitground" from="Ground" to="." method="game_over"]
 [connection signal="timeout" from="ObstaclesTimer" to="." method="_on_obstacles_timer_timeout"]
 [connection signal="hit" from="Obstacles" to="." method="game_over"]
+[connection signal="pressed" from="Start_Game_Shortcut_Button" to="." method="_on_button_pressed"]
