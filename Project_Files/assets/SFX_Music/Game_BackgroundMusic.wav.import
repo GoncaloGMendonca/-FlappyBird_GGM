@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://idab2xt1ls8l"
-path="res://.godot/imported/Goblins_Den_(Regular).wav-c2cdba1bd5b39e3a5e65a58ea67c6394.sample"
+path="res://.godot/imported/Game_BackgroundMusic.wav-0c9def87052d5e044e1f4ffba4abb9b6.sample"
 
 [deps]
 
-source_file="res://assets/SFX_Music/Goblins_Den_(Regular).wav"
-dest_files=["res://.godot/imported/Goblins_Den_(Regular).wav-c2cdba1bd5b39e3a5e65a58ea67c6394.sample"]
+source_file="res://assets/SFX_Music/Game_BackgroundMusic.wav"
+dest_files=["res://.godot/imported/Game_BackgroundMusic.wav-0c9def87052d5e044e1f4ffba4abb9b6.sample"]
 
 [params]
 

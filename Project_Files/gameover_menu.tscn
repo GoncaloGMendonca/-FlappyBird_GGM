@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://gameover_menu.gd" id="1_w1l0j"]
 [ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/Game_Theme.tres" id="2_rg4o4"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_e8px0"]
+[sub_resource type="InputEventAction" id="InputEventAction_84r3c"]
 action = &"start_game"
 
 [sub_resource type="Shortcut" id="Shortcut_h1moc"]
-events = [SubResource("InputEventAction_e8px0")]
+events = [SubResource("InputEventAction_84r3c")]
 
 [node name="GameOverMenu" type="CanvasLayer"]
 script = ExtResource("1_w1l0j")

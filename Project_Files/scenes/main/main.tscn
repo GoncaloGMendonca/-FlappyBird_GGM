@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://kblaftigp54m" path="res://assets/sprites/background/background3.png" id="5_q6h13"]
 [ext_resource type="Texture2D" uid="uid://rbmx2n8law3h" path="res://assets/sprites/background/background4a.png" id="6_b66rf"]
 [ext_resource type="PackedScene" uid="uid://b031544o71ygh" path="res://gameover_menu.tscn" id="6_xx4in"]
-[ext_resource type="AudioStream" uid="uid://idab2xt1ls8l" path="res://assets/SFX_Music/Goblins_Den_(Regular).wav" id="7_gle1m"]
+[ext_resource type="AudioStream" uid="uid://idab2xt1ls8l" path="res://assets/SFX_Music/Game_BackgroundMusic.wav" id="7_u15ra"]
 [ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/Game_Theme.tres" id="9_p4fkb"]
-[ext_resource type="AudioStream" uid="uid://du8uk6tccx5hw" path="res://assets/SFX_Music/game_over_SFX.mp3" id="12_fvgd5"]
+[ext_resource type="AudioStream" uid="uid://du8uk6tccx5hw" path="res://assets/SFX_Music/Game_Over_SFX.mp3" id="12_ef8je"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_gxrdm"]
 action = &"start_game"
@@ -21,7 +21,7 @@ events = [SubResource("InputEventAction_gxrdm")]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_xoif1")
-obstacle_scene = Array[PackedScene]([ExtResource("2_euqju")])
+obstacle_scene = ExtResource("2_euqju")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 unique_name_in_owner = true
@@ -61,7 +61,7 @@ texture = ExtResource("6_b66rf")
 centered = false
 
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_gle1m")
+stream = ExtResource("7_u15ra")
 volume_db = 3.099
 autoplay = true
 
@@ -107,7 +107,7 @@ shortcut = SubResource("Shortcut_o7ecd")
 
 [node name="GameOver_SFX" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("12_fvgd5")
+stream = ExtResource("12_ef8je")
 
 [connection signal="hitground" from="Ground" to="." method="game_over"]
 [connection signal="timeout" from="ObstaclesTimer" to="." method="_on_obstacles_timer_timeout"]

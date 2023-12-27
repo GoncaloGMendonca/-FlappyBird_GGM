@@ -1,10 +1,9 @@
 extends Node
 
-@export var obstacle_scene : Array[PackedScene]
+@export var obstacle_scene : PackedScene
 
-var paused = false
+#var paused = false
 
-var game_running = false
 var screen_size : Vector2
 var obstacle_delay: int = 100
 var obstacle_range: int = 200
@@ -50,7 +49,7 @@ func _on_obstacles_timer_timeout() -> void:
 
 func generate_obstacles():
 	print("PIPESES")
-	var obstacle = obstacle_scene.pick_random().instantiate()
+	var obstacle = obstacle_scene.instantiate()
 	obstacle.position.x = screen_size.x + obstacle_delay
 	obstacle.position.y = (screen_size.y) / 2  + randi_range(-obstacle_range, obstacle_range)
 	add_child(obstacle)
@@ -71,6 +70,7 @@ func start_game():
 	print("GERA")
 
 func game_over():
+	GameManager.game_running = false
 	obstacles_timer.stop()
 	scrolling_speed = 0
 	scroll = 0
@@ -81,9 +81,10 @@ func game_over():
 	SaveSystem.data.highscore = GameManager.score
 	SaveSystem.save_data()
 	score_label.hide()
+	game_over_sfx.play()
 
 func _on_button_pressed() -> void:
 	print("BUTTTONNN")
-	if GameManager.game_running != true:
+	if GameManager.game_running == false:
 		start_game()
-	
+	#METER O GAME OVER TAMBEM 

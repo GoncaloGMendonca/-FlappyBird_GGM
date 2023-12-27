@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://du8uk6tccx5hw"
-path="res://.godot/imported/game_over_SFX.mp3-f13648eac34b207707dfe54ee7657952.mp3str"
+path="res://.godot/imported/Game_Over_SFX.mp3-389e71148e60c6e8b7eb57bf230631fb.mp3str"
 
 [deps]
 
-source_file="res://assets/SFX_Music/game_over_SFX.mp3"
-dest_files=["res://.godot/imported/game_over_SFX.mp3-f13648eac34b207707dfe54ee7657952.mp3str"]
+source_file="res://assets/SFX_Music/Game_Over_SFX.mp3"
+dest_files=["res://.godot/imported/Game_Over_SFX.mp3-389e71148e60c6e8b7eb57bf230631fb.mp3str"]
 
 [params]
 
