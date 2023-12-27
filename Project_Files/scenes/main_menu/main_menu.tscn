@@ -1,27 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbn3gyuudp2qf"]
+[gd_scene load_steps=10 format=3 uid="uid://bbn3gyuudp2qf"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_n2tq6"]
-[ext_resource type="FontFile" uid="uid://cmgl6d0lr2t2q" path="res://assets/font/Alkhemikal.ttf" id="2_fpfce"]
 [ext_resource type="PackedScene" uid="uid://b2mu6sct6ksdi" path="res://scenes/leaderboard.tscn" id="2_okqlo"]
+[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/Game_Theme.tres" id="3_7ga61"]
+[ext_resource type="AudioStream" uid="uid://rq237jvyq0ke" path="res://assets/SFX_Music/Dark Ambient 3.ogg" id="3_8u347"]
+[ext_resource type="AudioStream" uid="uid://ctwp8y7tamb42" path="res://assets/SFX_Music/button_sfx.wav" id="4_nfu6o"]
+[ext_resource type="Texture2D" uid="uid://cd54cktrsjn86" path="res://assets/sprites/background/background1.png" id="5_kby6p"]
+[ext_resource type="Texture2D" uid="uid://dk2ny4g4oh4e6" path="res://assets/sprites/background/background2.png" id="6_ajotq"]
+[ext_resource type="Texture2D" uid="uid://kblaftigp54m" path="res://assets/sprites/background/background3.png" id="7_yfs63"]
+[ext_resource type="Texture2D" uid="uid://rbmx2n8law3h" path="res://assets/sprites/background/background4a.png" id="8_j6arf"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_n2tq6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -128.0
-offset_right = 128.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_fpfce")
+[node name="Label" type="Label" parent="."]
+offset_left = 337.0
+offset_top = 60.0
+offset_right = 863.0
+offset_bottom = 189.0
+theme = ExtResource("3_7ga61")
 theme_override_font_sizes/font_size = 125
 text = "Bat Escape"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 124.0
+offset_top = 262.0
+offset_right = 456.0
+offset_bottom = -203.0
+grow_vertical = 2
+theme = ExtResource("3_7ga61")
+theme_override_constants/separation = 40
+alignment = 1
 
 [node name="PlayGame_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -32,10 +43,55 @@ layout_mode = 2
 text = "Quit Game"
 
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8u347")
+volume_db = -6.857
+autoplay = true
 
 [node name="ButtonClick_SFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_nfu6o")
+volume_db = 12.444
 
 [node name="Leaderboard" parent="." instance=ExtResource("2_okqlo")]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+unique_name_in_owner = true
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(864, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("5_kby6p")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(864, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("6_ajotq")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(864, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("7_yfs63")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(5, 5)
+motion_mirroring = Vector2(864, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+modulate = Color(0.74902, 0.74902, 0.74902, 1)
+texture = ExtResource("8_j6arf")
+centered = false
+
+[connection signal="button_down" from="VBoxContainer/PlayGame_Button" to="." method="_on_play_game_button_button_down"]
 [connection signal="pressed" from="VBoxContainer/PlayGame_Button" to="." method="_on_play_game_button_pressed"]
+[connection signal="button_down" from="VBoxContainer/Quit_Button" to="." method="_on_quit_button_button_down"]
 [connection signal="pressed" from="VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]

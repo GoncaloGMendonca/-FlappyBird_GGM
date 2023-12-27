@@ -1,14 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2mu6sct6ksdi"]
+[gd_scene load_steps=3 format=3 uid="uid://b2mu6sct6ksdi"]
 
 [ext_resource type="Script" path="res://scenes/leaderboard.gd" id="1_8iojf"]
+[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/Game_Theme.tres" id="2_haf68"]
 
 [node name="Leaderboard" type="CanvasLayer"]
 script = ExtResource("1_8iojf")
 
 [node name="HighscoreLabel" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = 35.0
-offset_top = 34.0
-offset_right = 167.0
-offset_bottom = 124.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -304.0
+offset_top = -150.0
+offset_right = -54.0
+offset_bottom = -71.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_haf68")
 text = "000000"

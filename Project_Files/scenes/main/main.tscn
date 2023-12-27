@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d018dtcfpd536"]
+[gd_scene load_steps=12 format=3 uid="uid://d018dtcfpd536"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_xoif1"]
 [ext_resource type="PackedScene" uid="uid://cptpyim8agqii" path="res://scenes/obstacles/obstacles.tscn" id="2_euqju"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://kblaftigp54m" path="res://assets/sprites/background/background3.png" id="5_q6h13"]
 [ext_resource type="Texture2D" uid="uid://rbmx2n8law3h" path="res://assets/sprites/background/background4a.png" id="6_b66rf"]
 [ext_resource type="PackedScene" uid="uid://b031544o71ygh" path="res://gameover_menu.tscn" id="6_xx4in"]
+[ext_resource type="AudioStream" uid="uid://idab2xt1ls8l" path="res://assets/SFX_Music/Goblins_Den_(Regular).wav" id="7_gle1m"]
+[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/Game_Theme.tres" id="9_p4fkb"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_xoif1")
@@ -52,6 +54,9 @@ texture = ExtResource("6_b66rf")
 centered = false
 
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_gle1m")
+volume_db = 1.049
+autoplay = true
 
 [node name="Ground" parent="." instance=ExtResource("4_hx2ua")]
 unique_name_in_owner = true
@@ -69,21 +74,23 @@ position = Vector2(636, 410)
 unique_name_in_owner = true
 position = Vector2(180, 358)
 
+[node name="GameOverMenu" parent="." instance=ExtResource("6_xx4in")]
+visible = false
+
 [node name="ScoreLabel" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
+offset_left = -30.0
 offset_top = 19.0
-offset_right = 20.0
-offset_bottom = 42.0
+offset_right = 30.0
+offset_bottom = 82.0
 grow_horizontal = 2
+theme = ExtResource("9_p4fkb")
+theme_override_font_sizes/font_size = 60
 text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="GameOverMenu" parent="." instance=ExtResource("6_xx4in")]
-visible = false
 
 [connection signal="hitground" from="Ground" to="." method="game_over"]
 [connection signal="timeout" from="ObstaclesTimer" to="." method="_on_obstacles_timer_timeout"]

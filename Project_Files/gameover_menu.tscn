@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b031544o71ygh"]
+[gd_scene load_steps=5 format=3 uid="uid://b031544o71ygh"]
 
 [ext_resource type="Script" path="res://gameover_menu.gd" id="1_w1l0j"]
+[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/Game_Theme.tres" id="2_rg4o4"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_e8px0"]
 action = &"start_game"
@@ -11,24 +12,32 @@ events = [SubResource("InputEventAction_e8px0")]
 [node name="GameOverMenu" type="CanvasLayer"]
 script = ExtResource("1_w1l0j")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 8
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -141.0
-offset_top = -167.0
-offset_right = 141.0
-offset_bottom = 167.0
+offset_left = -201.5
+offset_top = 40.0
+offset_right = 201.5
+offset_bottom = 130.0
 grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+theme = ExtResource("2_rg4o4")
+theme_override_font_sizes/font_size = 91
 text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 73.0
+offset_top = 193.0
+offset_right = 423.0
+offset_bottom = -193.0
+grow_vertical = 2
+theme = ExtResource("2_rg4o4")
+theme_override_constants/separation = 55
+alignment = 1
 
 [node name="RestartGameButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2

@@ -70,6 +70,7 @@ func game_over():
 	game_over_menu.show()
 	SaveSystem.data.highscore = GameManager.score
 	SaveSystem.save_data()
+	score_label.hide()
 	
 
 
