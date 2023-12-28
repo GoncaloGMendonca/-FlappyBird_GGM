@@ -5,8 +5,6 @@ extends Node
 var screen_size : Vector2
 var obstacle_delay: int = 100
 var obstacle_range: int = 200
-var scroll_speed : int = 4
-var scroll = 0
 @export var scrolling_speed = 40
 
 @onready var game_over_menu: CanvasLayer = $GameOverMenu
@@ -33,7 +31,6 @@ func _on_obstacles_timer_timeout() -> void:
 	generate_obstacles()
 
 func generate_obstacles():
-	print("PIPESES")
 	var obstacle = obstacle_scene.instantiate()
 	obstacle.position.x = screen_size.x + obstacle_delay
 	obstacle.position.y = (screen_size.y) / 2  + randi_range(-obstacle_range, obstacle_range)
@@ -52,23 +49,18 @@ func start_game():
 		player.freeze = false
 
 func game_over():
+	if not game_over_sfx.playing:
+		game_over_sfx.play()
 	back_ground_music.stop()
 	GameManager.game_running = false
 	obstacles_timer.stop()
-	scrolling_speed = 0
-	scroll = 0
-#	obstacles.scroll_speed = 0
-	print("FINALLLLLl")
-#	get_tree().paused = true
+	score_label.hide()
+	start_game_shortcut_button.hide()
+	player.gravity_scale = 2.5
 	game_over_menu.show()
 	SaveSystem.data.highscore = GameManager.score
 	SaveSystem.save_data()
-	score_label.hide()
-	player.gravity_scale = 2.5
-	start_game_shortcut_button.hide()
-	if not game_over_sfx.playing:
-		game_over_sfx.play()
-	
+
 func _on_button_pressed() -> void:
 	if GameManager.game_running == false:
 		start_game()

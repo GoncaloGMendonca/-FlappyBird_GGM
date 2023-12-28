@@ -16,17 +16,10 @@ func _process(delta):
 
 func _on_body_entered(_body: RigidBody2D) -> void:
 	hit.emit()
-	print("HITTTT")
 
-func _on_score_area_body_entered(body: Node2D) -> void:
-	print("SCOREEEEEE")
+func _on_score_area_body_entered(_body: Node2D) -> void:
 	GameManager.score += 1
 	score_sfx.play()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	print("SAIUUUUUU")
 	queue_free()
-
-func _on_timer_timeout() -> void:
-	print("MUDARA")
-	animated_sprite_2d.play(SPRITES.pick_random())

@@ -19,16 +19,20 @@ events = [SubResource("InputEventAction_pfrwm")]
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_n2tq6")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 337.0
-offset_top = 60.0
-offset_right = 863.0
-offset_bottom = 189.0
+[node name="Game_Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -264.0
+offset_top = 63.0
+offset_right = 262.0
+offset_bottom = 192.0
+grow_horizontal = 2
 theme = ExtResource("3_7ga61")
 theme_override_font_sizes/font_size = 125
 text = "Bat Escape"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Buttons_Container" type="VBoxContainer" parent="."]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 124.0
@@ -40,12 +44,12 @@ theme = ExtResource("3_7ga61")
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="PlayGame_Button" type="Button" parent="VBoxContainer"]
+[node name="PlayGame_Button" type="Button" parent="Buttons_Container"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_4v3kb")
 text = "Start Game"
 
-[node name="Quit_Button" type="Button" parent="VBoxContainer"]
+[node name="Quit_Button" type="Button" parent="Buttons_Container"]
 layout_mode = 2
 text = "Quit Game"
 
@@ -57,7 +61,7 @@ autoplay = true
 [node name="ButtonClick_SFX" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_6eleu")
-volume_db = 12.444
+volume_db = 13.509
 
 [node name="Leaderboard" parent="." instance=ExtResource("2_okqlo")]
 
@@ -98,7 +102,7 @@ modulate = Color(0.74902, 0.74902, 0.74902, 1)
 texture = ExtResource("8_j6arf")
 centered = false
 
-[connection signal="button_down" from="VBoxContainer/PlayGame_Button" to="." method="_on_play_game_button_button_down"]
-[connection signal="pressed" from="VBoxContainer/PlayGame_Button" to="." method="_on_play_game_button_pressed"]
-[connection signal="button_down" from="VBoxContainer/Quit_Button" to="." method="_on_quit_button_button_down"]
-[connection signal="pressed" from="VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
+[connection signal="button_down" from="Buttons_Container/PlayGame_Button" to="." method="_on_play_game_button_button_down"]
+[connection signal="pressed" from="Buttons_Container/PlayGame_Button" to="." method="_on_play_game_button_pressed"]
+[connection signal="button_down" from="Buttons_Container/Quit_Button" to="." method="_on_quit_button_button_down"]
+[connection signal="pressed" from="Buttons_Container/Quit_Button" to="." method="_on_quit_button_pressed"]
