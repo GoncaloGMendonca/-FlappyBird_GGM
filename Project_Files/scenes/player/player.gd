@@ -12,12 +12,13 @@ extends RigidBody2D
 #	freeze = true
 
 func _input(event):
-	if event.is_action_pressed("flap"):
-			print("flap")
-			animated_sprite_2d.play()
-			flap()
+	if GameManager.game_running == true:
+		if event.is_action_pressed("flap"):
+				print("flap")
+				animated_sprite_2d.play()
+				flap()
 #			start_game.emit()
-			freeze = false
+				freeze = false
 			
 
 func flap():

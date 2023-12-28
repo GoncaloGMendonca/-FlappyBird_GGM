@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbn3gyuudp2qf"]
+[gd_scene load_steps=12 format=3 uid="uid://bbn3gyuudp2qf"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_n2tq6"]
 [ext_resource type="PackedScene" uid="uid://b2mu6sct6ksdi" path="res://scenes/leaderboard.tscn" id="2_okqlo"]
@@ -9,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://dk2ny4g4oh4e6" path="res://assets/sprites/background/background2.png" id="6_ajotq"]
 [ext_resource type="Texture2D" uid="uid://kblaftigp54m" path="res://assets/sprites/background/background3.png" id="7_yfs63"]
 [ext_resource type="Texture2D" uid="uid://rbmx2n8law3h" path="res://assets/sprites/background/background4a.png" id="8_j6arf"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_pfrwm"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_4v3kb"]
+events = [SubResource("InputEventAction_pfrwm")]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_n2tq6")
@@ -36,6 +42,7 @@ alignment = 1
 
 [node name="PlayGame_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_4v3kb")
 text = "Start Game"
 
 [node name="Quit_Button" type="Button" parent="VBoxContainer"]

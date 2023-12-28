@@ -78,7 +78,9 @@ shape = SubResource("RectangleShape2D_bvihs")
 [node name="Score_SFX" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_knj2e")
+volume_db = 3.597
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
 [connection signal="timeout" from="ChangeSprite_Timer" to="." method="_on_timer_timeout"]

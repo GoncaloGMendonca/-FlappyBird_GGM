@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b031544o71ygh"]
+[gd_scene load_steps=6 format=3 uid="uid://b031544o71ygh"]
 
 [ext_resource type="Script" path="res://gameover_menu.gd" id="1_w1l0j"]
 [ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/Game_Theme.tres" id="2_rg4o4"]
+[ext_resource type="PackedScene" uid="uid://b2mu6sct6ksdi" path="res://scenes/leaderboard.tscn" id="3_i7pqj"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_84r3c"]
 action = &"start_game"
@@ -11,6 +12,10 @@ events = [SubResource("InputEventAction_84r3c")]
 
 [node name="GameOverMenu" type="CanvasLayer"]
 script = ExtResource("1_w1l0j")
+
+[node name="Leaderboard" parent="." instance=ExtResource("3_i7pqj")]
+unique_name_in_owner = true
+visible = false
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5

@@ -61,6 +61,7 @@ texture = ExtResource("6_b66rf")
 centered = false
 
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("7_u15ra")
 volume_db = 3.099
 autoplay = true
