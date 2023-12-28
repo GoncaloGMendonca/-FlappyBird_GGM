@@ -1,16 +1,15 @@
 extends Node
 
-@export var obstacle_scene : PackedScene
-
 var screen_size : Vector2
 var obstacle_delay: int = 100
 var obstacle_range: int = 200
 @export var scrolling_speed = 40
+@export var obstacle_scene : PackedScene
 
 @onready var game_over_menu: CanvasLayer = $GameOverMenu
 @onready var ground: Area2D = %Ground
 @onready var obstacles_timer: Timer = %ObstaclesTimer
-@onready var score_label: Label = $ScoreLabel
+@onready var score_label: Label = %ScoreLabel
 @onready var player: RigidBody2D = %Player
 @onready var parallax_background: ParallaxBackground = %ParallaxBackground
 @onready var obstacles: Area2D = %Obstacles
@@ -21,6 +20,7 @@ var obstacle_range: int = 200
 func _ready():
 	screen_size = get_window().size
 	new_game()
+
 
 func _process(delta):
 	score_label.text = str(GameManager.score)
@@ -34,8 +34,10 @@ func generate_obstacles():
 	var obstacle = obstacle_scene.instantiate()
 	obstacle.position.x = screen_size.x + obstacle_delay
 	obstacle.position.y = (screen_size.y) / 2  + randi_range(-obstacle_range, obstacle_range)
+	obstacle.hit.connect(game_over)
 	add_child(obstacle)
 	obstacle.animated_sprite_2d.play(obstacle.SPRITES.pick_random())
+	
 
 func new_game() -> void:
 	GameManager.score = 0 
