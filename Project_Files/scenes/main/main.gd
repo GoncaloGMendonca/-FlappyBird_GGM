@@ -16,6 +16,7 @@ var obstacle_range: int = 200
 @onready var start_game_shortcut_button: Button = %Start_Game_Shortcut_Button
 @onready var game_over_sfx: AudioStreamPlayer = %GameOver_SFX
 @onready var back_ground_music: AudioStreamPlayer = %BackGround_Music
+@onready var score_background: TextureRect = %Score_Background
 
 func _ready():
 	screen_size = get_window().size
@@ -57,6 +58,7 @@ func game_over():
 	GameManager.game_running = false
 	obstacles_timer.stop()
 	score_label.hide()
+	score_background.hide()
 	start_game_shortcut_button.hide()
 	player.gravity_scale = 2.5
 	game_over_menu.show()

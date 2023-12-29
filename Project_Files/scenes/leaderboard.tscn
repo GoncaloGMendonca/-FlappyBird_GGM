@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2mu6sct6ksdi"]
 
 [ext_resource type="Script" path="res://scenes/leaderboard.gd" id="1_8iojf"]
-[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/Game_Theme.tres" id="2_haf68"]
+[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/UI/Game_Theme.tres" id="2_wtwcl"]
 
 [node name="Leaderboard" type="CanvasLayer"]
 script = ExtResource("1_8iojf")
@@ -19,5 +19,5 @@ offset_right = -79.0
 offset_bottom = -186.0
 grow_horizontal = 0
 grow_vertical = 0
-theme = ExtResource("2_haf68")
+theme = ExtResource("2_wtwcl")
 text = "000000"

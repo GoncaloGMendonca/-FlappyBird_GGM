@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_n2tq6"]
 [ext_resource type="PackedScene" uid="uid://b2mu6sct6ksdi" path="res://scenes/leaderboard.tscn" id="2_okqlo"]
-[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/Game_Theme.tres" id="3_7ga61"]
+[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/UI/Game_Theme.tres" id="2_stpaa"]
 [ext_resource type="AudioStream" uid="uid://rq237jvyq0ke" path="res://assets/SFX_Music/Main_Menu_Music.ogg" id="3_6367d"]
 [ext_resource type="AudioStream" uid="uid://ctwp8y7tamb42" path="res://assets/SFX_Music/Button_SFX.wav" id="4_6eleu"]
 [ext_resource type="Texture2D" uid="uid://cd54cktrsjn86" path="res://assets/sprites/background/background1.png" id="5_kby6p"]
@@ -19,6 +19,14 @@ events = [SubResource("InputEventAction_pfrwm")]
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_n2tq6")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0431373, 0.0431373, 0.286275)
+
 [node name="Game_Title" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
@@ -28,24 +36,26 @@ offset_top = 63.0
 offset_right = 262.0
 offset_bottom = 192.0
 grow_horizontal = 2
-theme = ExtResource("3_7ga61")
+theme = ExtResource("2_stpaa")
 theme_override_font_sizes/font_size = 125
-text = "Bat Escape"
+text = "Descent of Depths"
 
 [node name="Buttons_Container" type="VBoxContainer" parent="."]
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 124.0
-offset_top = 262.0
-offset_right = 456.0
-offset_bottom = -203.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 81.0
+offset_top = -72.0
+offset_right = 514.0
+offset_bottom = 190.0
 grow_vertical = 2
-theme = ExtResource("3_7ga61")
-theme_override_constants/separation = 40
+theme = ExtResource("2_stpaa")
+theme_override_constants/separation = 118
 alignment = 1
 
 [node name="PlayGame_Button" type="Button" parent="Buttons_Container"]
 layout_mode = 2
+theme = ExtResource("2_stpaa")
 shortcut = SubResource("Shortcut_4v3kb")
 text = "Start Game"
 
