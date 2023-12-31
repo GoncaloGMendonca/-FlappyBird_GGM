@@ -22,7 +22,6 @@ func _ready():
 	screen_size = get_window().size
 	new_game()
 
-
 func _process(delta):
 	score_label.text = str(GameManager.score)
 	if GameManager.game_running:
@@ -38,7 +37,6 @@ func generate_obstacles():
 	obstacle.hit.connect(game_over)
 	add_child(obstacle)
 	obstacle.animated_sprite_2d.play(obstacle.SPRITES.pick_random())
-	
 
 func new_game() -> void:
 	GameManager.score = 0 
