@@ -2,6 +2,9 @@ extends CanvasLayer
 
 @onready var button_click_sfx: AudioStreamPlayer = %ButtonClick_SFX
 
+#func _ready() -> void:
+#	SaveSystem.data.Saveplayer_name = GameManager.player_name
+
 func _on_play_game_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
 

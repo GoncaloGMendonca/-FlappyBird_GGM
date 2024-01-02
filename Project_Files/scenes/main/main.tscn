@@ -76,6 +76,7 @@ position = Vector2(0, 189)
 unique_name_in_owner = true
 
 [node name="GameOverMenu" parent="." instance=ExtResource("6_xx4in")]
+unique_name_in_owner = true
 visible = false
 
 [node name="Start_Game_Shortcut_Button" type="Button" parent="."]

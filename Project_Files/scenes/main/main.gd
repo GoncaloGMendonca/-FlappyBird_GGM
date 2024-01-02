@@ -6,7 +6,7 @@ var obstacle_range: int = 200
 @export var scrolling_speed = 40
 @export var obstacle_scene : PackedScene
 
-@onready var game_over_menu: CanvasLayer = $GameOverMenu
+@onready var game_over_menu: CanvasLayer = %GameOverMenu
 @onready var ground: Area2D = %Ground
 @onready var obstacles_timer: Timer = %ObstaclesTimer
 @onready var score_label: Label = %ScoreLabel
@@ -39,6 +39,7 @@ func generate_obstacles():
 	obstacle.animated_sprite_2d.play(obstacle.SPRITES.pick_random())
 
 func new_game() -> void:
+	game_over_menu.leaderboard.hide()
 	GameManager.score = 0 
 	player.freeze = true
 	GameManager.game_running = false
@@ -58,10 +59,12 @@ func game_over():
 	score_label.hide()
 	score_background.hide()
 	start_game_shortcut_button.hide()
+	game_over_menu.leaderboard.show()
 	player.gravity_scale = 2.5
 	game_over_menu.show()
-	SaveSystem.data.highscore = GameManager.score
-	SaveSystem.save_data()
+	if GameManager.score > SaveSystem.data.highscore:
+			SaveSystem.data.highscore = GameManager.score
+			SaveSystem.save_data()
 
 func _on_button_pressed() -> void:
 	if GameManager.game_running == false:

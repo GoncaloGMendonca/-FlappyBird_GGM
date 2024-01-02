@@ -14,6 +14,9 @@ events = [SubResource("InputEventAction_84r3c")]
 [node name="GameOverMenu" type="CanvasLayer"]
 script = ExtResource("1_t6w22")
 
+[node name="Leaderboard" parent="." instance=ExtResource("2_6xt5x")]
+unique_name_in_owner = true
+
 [node name="GameOver_Label" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
@@ -55,9 +58,6 @@ text = "Quit to Main Menu"
 unique_name_in_owner = true
 stream = ExtResource("4_6r2fe")
 volume_db = 13.509
-
-[node name="Leaderboard" parent="." instance=ExtResource("2_6xt5x")]
-visible = false
 
 [connection signal="button_down" from="Buttons_Container/RestartGameButton" to="." method="_on_restart_game_button_button_down"]
 [connection signal="pressed" from="Buttons_Container/RestartGameButton" to="." method="_on_restart_game_button_pressed"]
