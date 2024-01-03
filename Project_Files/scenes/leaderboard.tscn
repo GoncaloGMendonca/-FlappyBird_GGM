@@ -6,7 +6,7 @@
 [node name="Leaderboard" type="CanvasLayer"]
 script = ExtResource("1_8iojf")
 
-[node name="HighscoreLabel" type="Label" parent="."]
+[node name="LastscoreLabel" type="Label" parent="."]
 unique_name_in_owner = true
 anchors_preset = 3
 anchor_left = 1.0
@@ -24,56 +24,15 @@ text = "000000"
 
 [node name="Item_Leaderboard" type="ItemList" parent="."]
 unique_name_in_owner = true
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -223.0
-offset_top = -151.0
-offset_right = -55.0
-offset_bottom = 316.0
-grow_horizontal = 0
-grow_vertical = 2
-theme = ExtResource("2_wtwcl")
-
-[node name="Input_Container" type="VBoxContainer" parent="."]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -511.0
-offset_top = -319.0
-offset_right = -111.0
-offset_bottom = 8.0
+offset_left = -189.0
+offset_top = -491.0
+offset_right = -91.0
+offset_bottom = -59.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(0.625, 0.625)
 theme = ExtResource("2_wtwcl")
-theme_override_constants/separation = 45
-
-[node name="Label" type="Label" parent="Input_Container"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("2_wtwcl")
-theme_override_font_sizes/font_size = 0
-text = "LeaderBoard"
-
-[node name="Input_PlayerName" type="TextEdit" parent="Input_Container"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("2_wtwcl")
-theme_override_font_sizes/font_size = 41
-placeholder_text = "  ENTER YOUR NAME "
-wrap_mode = 1
-scroll_fit_content_height = true
-
-[node name="SaveNameScore_Button" type="Button" parent="Input_Container"]
-layout_mode = 2
-theme = ExtResource("2_wtwcl")
-theme_override_font_sizes/font_size = 52
-text = "Save Your Name 
-and Score "
-
-[connection signal="pressed" from="Input_Container/SaveNameScore_Button" to="." method="_on_save_name_score_button_pressed"]
