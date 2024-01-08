@@ -2,7 +2,7 @@ extends Node
 
 var screen_size : Vector2
 var obstacle_delay: int = 100
-var obstacle_range: int = 200
+var obstacle_range: int = 250
 @export var scrolling_speed = 40
 @export var obstacle_scene : PackedScene
 
@@ -63,6 +63,7 @@ func game_over():
 	start_game_shortcut_button.hide()
 	game_over_menu.leaderboard.show()
 	player.gravity_scale = 2.5
+	player.animated_sprite_2d.play("damage")
 	game_over_menu.show()
 	player.set_collision_layer_value(1,false)
 	game_over_menu.leaderboard.add_leaderboard()

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b031544o71ygh"]
 
 [ext_resource type="Script" path="res://scenes/gameover/gameover_menu.gd" id="1_t6w22"]
-[ext_resource type="PackedScene" uid="uid://b2mu6sct6ksdi" path="res://scenes/leaderboard.tscn" id="2_6xt5x"]
-[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/UI/Game_Theme.tres" id="2_yyj3c"]
-[ext_resource type="AudioStream" uid="uid://ctwp8y7tamb42" path="res://assets/SFX_Music/Button_SFX.wav" id="4_6r2fe"]
+[ext_resource type="PackedScene" uid="uid://b2mu6sct6ksdi" path="res://scenes/leaderboard/leaderboard.tscn" id="2_6xt5x"]
+[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/UI/Game_Theme.tres" id="3_ujw12"]
+[ext_resource type="AudioStream" uid="uid://ctwp8y7tamb42" path="res://assets/sfx_music/button_sfx.wav" id="4_j8ww8"]
 
 [node name="GameOverMenu" type="CanvasLayer"]
 script = ExtResource("1_t6w22")
@@ -20,7 +20,7 @@ offset_top = 40.0
 offset_right = 201.5
 offset_bottom = 130.0
 grow_horizontal = 2
-theme = ExtResource("2_yyj3c")
+theme = ExtResource("3_ujw12")
 theme_override_font_sizes/font_size = 91
 text = "GAME OVER"
 horizontal_alignment = 1
@@ -35,7 +35,7 @@ offset_top = -78.0
 offset_right = 594.0
 offset_bottom = 171.0
 grow_vertical = 2
-theme = ExtResource("2_yyj3c")
+theme = ExtResource("3_ujw12")
 theme_override_constants/separation = 80
 alignment = 1
 
@@ -49,7 +49,7 @@ text = "Quit to Main Menu"
 
 [node name="ButtonClick_SFX" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("4_6r2fe")
+stream = ExtResource("4_j8ww8")
 volume_db = 13.509
 
 [connection signal="button_down" from="Buttons_Container/RestartGameButton" to="." method="_on_restart_game_button_button_down"]

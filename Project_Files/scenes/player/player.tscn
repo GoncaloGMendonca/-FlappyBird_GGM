@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bn74pdlugarw1"]
+[gd_scene load_steps=13 format=3 uid="uid://bn74pdlugarw1"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_o761f"]
-[ext_resource type="AudioStream" uid="uid://dknu6d31o5re2" path="res://assets/SFX_Music/player_flap_SFX.wav" id="3_fpmkh"]
-[ext_resource type="Texture2D" uid="uid://iwi825knoe8r" path="res://assets/sprites/bat/Purple_Flying.png" id="6_jubs3"]
+[ext_resource type="Texture2D" uid="uid://segn0uegeeli" path="res://assets/sprites/bat/purple_damage.png" id="2_s244h"]
+[ext_resource type="AudioStream" uid="uid://dknu6d31o5re2" path="res://assets/sfx_music/player_flap_sfx.wav" id="4_305vc"]
+[ext_resource type="Texture2D" uid="uid://iwi825knoe8r" path="res://assets/sprites/bat/purple_flying.png" id="6_jubs3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tf5jn"]
 atlas = ExtResource("6_jubs3")
@@ -30,6 +31,14 @@ region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n4hl6"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s244h")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tf5jn")
@@ -66,7 +75,6 @@ unique_name_in_owner = true
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_n4hl6")
 animation = &"flying"
-frame_progress = 0.167857
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -76,5 +84,5 @@ shape = SubResource("CapsuleShape2D_28g7p")
 
 [node name="Player_SFX" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("3_fpmkh")
+stream = ExtResource("4_305vc")
 volume_db = -4.12

@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2mu6sct6ksdi"]
 
-[ext_resource type="Script" path="res://scenes/leaderboard.gd" id="1_8iojf"]
-[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/UI/Game_Theme.tres" id="2_wtwcl"]
+[ext_resource type="Script" path="res://scenes/leaderboard/leaderboard.gd" id="1_iqhft"]
+[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/UI/game_theme.tres" id="2_p3fe6"]
 
 [node name="Leaderboard" type="CanvasLayer"]
-script = ExtResource("1_8iojf")
+script = ExtResource("1_iqhft")
 
 [node name="LastscoreLabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -19,7 +19,7 @@ offset_right = -227.0
 offset_bottom = 37.0
 grow_horizontal = 0
 grow_vertical = 2
-theme = ExtResource("2_wtwcl")
+theme = ExtResource("2_p3fe6")
 text = "000000"
 
 [node name="Item_Leaderboard" type="ItemList" parent="."]
@@ -35,7 +35,7 @@ offset_right = -69.0
 offset_bottom = -6.0
 grow_horizontal = 0
 grow_vertical = 0
-theme = ExtResource("2_wtwcl")
+theme = ExtResource("2_p3fe6")
 item_count = 5
 item_0/text = "123456"
 item_1/text = "123456"
@@ -52,5 +52,5 @@ offset_top = 196.0
 offset_right = -47.0
 offset_bottom = 239.0
 grow_horizontal = 0
-theme = ExtResource("2_wtwcl")
+theme = ExtResource("2_p3fe6")
 text = "Leaderboard"

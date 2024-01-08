@@ -6,7 +6,7 @@ extends RigidBody2D
 func _input(event):
 	if GameManager.game_running == true:
 		if event.is_action_pressed("flap"):
-				animated_sprite_2d.play()
+				animated_sprite_2d.play("flying")
 				flap()
 
 func flap():

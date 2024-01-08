@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bh28pne1uggto" path="res://assets/sprites/obstacules/obstacule_2.png" id="3_8abme"]
 [ext_resource type="Texture2D" uid="uid://dwpp73s8h4a2n" path="res://assets/sprites/obstacules/obstacule_3.png" id="4_jj7av"]
 [ext_resource type="Texture2D" uid="uid://bwagqgrd0f7ms" path="res://assets/sprites/obstacules/obstacule_4.png" id="5_h5i7d"]
-[ext_resource type="AudioStream" uid="uid://dc32apot2nt3n" path="res://assets/SFX_Music/add_score_SFX.wav" id="6_dw60c"]
+[ext_resource type="AudioStream" uid="uid://dc32apot2nt3n" path="res://assets/sfx_music/add_score_sfx.wav" id="6_8rkhi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tcff3"]
 animations = [{
@@ -75,7 +75,7 @@ shape = SubResource("RectangleShape2D_bvihs")
 
 [node name="Score_SFX" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("6_dw60c")
+stream = ExtResource("6_8rkhi")
 volume_db = 3.597
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

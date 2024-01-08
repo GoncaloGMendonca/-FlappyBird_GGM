@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://idab2xt1ls8l"
-path="res://.godot/imported/Game_BackgroundMusic.wav-0c9def87052d5e044e1f4ffba4abb9b6.sample"
+path="res://.godot/imported/game_background_music.wav-0f5f5e8050aba27555e9db5f4dd57769.sample"
 
 [deps]
 
-source_file="res://assets/SFX_Music/Game_BackgroundMusic.wav"
-dest_files=["res://.godot/imported/Game_BackgroundMusic.wav-0c9def87052d5e044e1f4ffba4abb9b6.sample"]
+source_file="res://assets/sfx_music/game_background_music.wav"
+dest_files=["res://.godot/imported/game_background_music.wav-0f5f5e8050aba27555e9db5f4dd57769.sample"]
 
 [params]
 

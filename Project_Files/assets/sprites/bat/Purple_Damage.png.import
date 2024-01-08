@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://segn0uegeeli"
-path="res://.godot/imported/Purple_Damage.png-6bb4bc80ff0956b8b514c9ec4303cb5d.ctex"
+path="res://.godot/imported/purple_damage.png-eeacee2deb2de2eb5e879f41e46a3fde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/bat/Purple_Damage.png"
-dest_files=["res://.godot/imported/Purple_Damage.png-6bb4bc80ff0956b8b514c9ec4303cb5d.ctex"]
+source_file="res://assets/sprites/bat/purple_damage.png"
+dest_files=["res://.godot/imported/purple_damage.png-eeacee2deb2de2eb5e879f41e46a3fde.ctex"]
 
 [params]
 
