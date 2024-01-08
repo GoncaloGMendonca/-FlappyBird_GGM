@@ -17,6 +17,7 @@ var obstacle_range: int = 200
 @onready var game_over_sfx: AudioStreamPlayer = %GameOver_SFX
 @onready var back_ground_music: AudioStreamPlayer = %BackGround_Music
 @onready var score_background: TextureRect = %Score_Background
+@onready var guide_label: Label = %GuideLabel
 
 func _ready():
 	screen_size = get_window().size
@@ -47,14 +48,15 @@ func new_game() -> void:
 func start_game():
 	GameManager.game_running = true
 	obstacles_timer.start()
+	guide_label.hide()
 	if GameManager.game_running:
 		player.freeze = false
 
 func game_over():
+	GameManager.game_running = false
 	if not game_over_sfx.playing:
 		game_over_sfx.play()
 	back_ground_music.stop()
-	GameManager.game_running = false
 	obstacles_timer.stop()
 	score_label.hide()
 	score_background.hide()
@@ -62,6 +64,8 @@ func game_over():
 	game_over_menu.leaderboard.show()
 	player.gravity_scale = 2.5
 	game_over_menu.show()
+	player.set_collision_layer_value(1,false)
+	game_over_menu.leaderboard.add_leaderboard()
 	if GameManager.score > SaveSystem.data.highscore:
 			SaveSystem.data.highscore = GameManager.score
 			SaveSystem.save_data()

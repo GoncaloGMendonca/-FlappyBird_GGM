@@ -1,15 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b031544o71ygh"]
+[gd_scene load_steps=5 format=3 uid="uid://b031544o71ygh"]
 
 [ext_resource type="Script" path="res://scenes/gameover/gameover_menu.gd" id="1_t6w22"]
 [ext_resource type="PackedScene" uid="uid://b2mu6sct6ksdi" path="res://scenes/leaderboard.tscn" id="2_6xt5x"]
 [ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/UI/Game_Theme.tres" id="2_yyj3c"]
 [ext_resource type="AudioStream" uid="uid://ctwp8y7tamb42" path="res://assets/SFX_Music/Button_SFX.wav" id="4_6r2fe"]
-
-[sub_resource type="InputEventAction" id="InputEventAction_84r3c"]
-action = &"start_game"
-
-[sub_resource type="Shortcut" id="Shortcut_h1moc"]
-events = [SubResource("InputEventAction_84r3c")]
 
 [node name="GameOverMenu" type="CanvasLayer"]
 script = ExtResource("1_t6w22")
@@ -47,7 +41,6 @@ alignment = 1
 
 [node name="RestartGameButton" type="Button" parent="Buttons_Container"]
 layout_mode = 2
-shortcut = SubResource("Shortcut_h1moc")
 text = "Restart Game "
 
 [node name="QuitMainMenuButton" type="Button" parent="Buttons_Container"]

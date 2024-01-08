@@ -3,4 +3,4 @@ extends Resource
 
 @export var highscore: int = 0
 @export var saveplayername = ""
-@export var saveleaderB = [1,1,2,2,1,6,7,8,9,7]
+@export var saveleaderboard = [1,3,2,12,4,6,5,8,9,7]
