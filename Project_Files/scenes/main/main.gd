@@ -22,7 +22,7 @@ var obstacle_range: int = 250
 func _ready():
 	screen_size = get_window().size
 	new_game()
-
+	
 func _process(delta):
 	score_label.text = str(GameManager.score)
 	if GameManager.game_running:
@@ -53,6 +53,7 @@ func start_game():
 		player.freeze = false
 
 func game_over():
+	player_die()
 	GameManager.game_running = false
 	if not game_over_sfx.playing:
 		game_over_sfx.play()
@@ -62,10 +63,7 @@ func game_over():
 	score_background.hide()
 	start_game_shortcut_button.hide()
 	game_over_menu.leaderboard.show()
-	player.gravity_scale = 2.5
-	player.animated_sprite_2d.play("damage")
 	game_over_menu.show()
-	player.set_collision_layer_value(1,false)
 	game_over_menu.leaderboard.add_leaderboard()
 	if GameManager.score > SaveSystem.data.highscore:
 			SaveSystem.data.highscore = GameManager.score
@@ -74,3 +72,9 @@ func game_over():
 func _on_button_pressed() -> void:
 	if GameManager.game_running == false:
 		start_game()
+
+func player_die():
+	player.gravity_scale = 2.5
+	player.animated_sprite_2d.play("damage")
+	player.animated_sprite_2d.rotate(-55)
+	player.set_collision_layer_value(1,false)

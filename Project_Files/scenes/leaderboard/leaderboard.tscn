@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2mu6sct6ksdi"]
 
 [ext_resource type="Script" path="res://scenes/leaderboard/leaderboard.gd" id="1_iqhft"]
-[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/UI/game_theme.tres" id="2_p3fe6"]
+[ext_resource type="Theme" uid="uid://sqon6gfgdafv" path="res://assets/UI/Game_Theme.tres" id="2_p3fe6"]
 
 [node name="Leaderboard" type="CanvasLayer"]
 script = ExtResource("1_iqhft")
